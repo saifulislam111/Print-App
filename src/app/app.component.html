@@ -1,0 +1,148 @@
+<div [class]="theme">
+
+
+  <mat-sidenav-container class="example-sidenav-container" fullscreen>
+    <mat-sidenav #sidenav [opened]="mobileQuery.matches ? false : true"
+                 [mode]="mobileQuery.matches ? 'side' : 'side'"
+                 [fixedInViewport]="mobileQuery.matches" class="overfow-hidden">
+      <mat-toolbar color="accent">
+        <img src="https://i2.wp.com/selise.ch/wp-content/uploads/2016/01/selise-logo.png?fit=300%2C73&ssl=1"
+             width="150px">
+        <!--<h1 class="logo">-->
+        <!--SEISE.-->
+        <!--<span style="font-size: 12px;">ch</span>-->
+        <!--</h1>-->
+      </mat-toolbar>
+      <cdk-sidemenu></cdk-sidemenu>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+
+      <mat-toolbar color="primary" fxLayout="row">
+        <div fxFlex="50" fxLayout="row" fxLayoutAlign="start center">
+          <button mat-icon-button (click)="sidenav.toggle()">
+            <mat-icon>menu</mat-icon>
+          </button>
+          <!--<h1 class="m-0 p-0">Angular Material Theming</h1>-->
+          <div class="pl-30 pr-30"
+               fxLayout="row"
+               fxLayoutAlign="center center" fxHide fxShow.gt-sm>
+            <mat-icon>search</mat-icon>
+            <form class="mb-5">
+              <input placeholder="Search..." class="search-field">
+            </form>
+          </div>
+          <button class="ml-20 cursor-pointer" fxHide fxShow.gt-sm>
+            <span>Home</span>
+          </button>
+          <button class="ml-20 cursor-pointer" fxHide fxShow.gt-sm>
+            <span>About</span>
+          </button>
+        </div>
+        <div fxFlex="50" fxLayout="row" fxLayoutAlign="end center">
+          <button mat-icon-button>
+            <mat-icon>zoom_out_map</mat-icon>
+          </button>
+          <button mat-icon-button>
+            <mat-icon>notifications_none</mat-icon>
+          </button>
+          <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="theme='my-theme'">Light Theme</button>
+            <button mat-menu-item (click)="theme='my-second-theme'">Dark Theme</button>
+          </mat-menu>
+        </div>
+      </mat-toolbar>
+
+      <div class="pl-25 pr-25 pt-20 pb-20">
+        <div fxLayout="row" fxLayoutAlign="center center">
+          <h1 ngClass.sm="font-size-14" ngClass.xs="font-size-14">
+            Welcome to Amazon Devices!
+          </h1>
+        </div>
+        <div class="mt-30 ml-30" fxLayout="row">
+          <div fxFlex="60" fxLayout="column">
+            <h3 class="text-underline">Customer Information</h3>
+
+            <mat-form-field class="w-50-p mt-10">
+              <input matInput placeholder="Date" [(ngModel)]="productInfo.date" [matDatepicker]="date">
+              <mat-datepicker-toggle matSuffix [for]="date"></mat-datepicker-toggle>
+              <mat-datepicker #date></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field class="w-50-p">
+              <input matInput placeholder="Invoice" [(ngModel)]="productInfo.invoice">
+            </mat-form-field>
+
+            <mat-form-field class="w-50-p">
+              <input matInput placeholder="Product Name" [(ngModel)]="productInfo.productName">
+            </mat-form-field>
+
+            <mat-form-field class="w-50-p">
+              <input matInput placeholder="Condition" [(ngModel)]="productInfo.condition">
+            </mat-form-field>
+
+            <mat-form-field class="w-50-p">
+              <input matInput placeholder="Customer Name" [(ngModel)]="productInfo.customerName">
+            </mat-form-field>
+
+            <mat-form-field class="w-50-p">
+              <input matInput placeholder="Customer Phone" [(ngModel)]="productInfo.customerPhone">
+            </mat-form-field>
+
+            <mat-form-field class="w-50-p">
+              <input matInput placeholder="Customer Address" [(ngModel)]="productInfo.customerAddress">
+            </mat-form-field>
+
+          </div>
+          <div fxFlex="40" fxLayout="column" fxLayoutAlign="start center">
+            <h3 class="text-underline">Print Section</h3>
+
+            <div class="mt-20 mr-20 border p-40 w-60-p" id="print-section">
+              <div fxLayout="column" fxLayoutAlign="start center">
+                <h2 class="m-0 p-0">Amazon Devices</h2>
+                <span>Address: Jatrabari, Dhaka</span>
+                <span class="border-bottom pb-5">Hotline: 01400401133</span>
+                <h4>Customer Details</h4>
+              </div>
+              <div fxLayout="column">
+                <span class="mt-10"><b>Date:</b> {{productInfo.date | date}}</span>
+                <span class="mt-10"><b>Invoice:</b> {{productInfo.invoice}}</span>
+                <span class="mt-10"><b>Name:</b> {{productInfo.customerName}}</span>
+                <span class="mt-10"><b>Address:</b> {{productInfo.customerAddress}}</span>
+                <span class="mt-10"><b>Phone:</b> {{productInfo.customerPhone}}</span>
+                <span class="mt-10"><b>Product:</b> {{productInfo.productName}}</span>
+                <span class="mt-10"><b>Condition:</b> {{productInfo.condition}}</span>
+              </div>
+
+              <div fxLayout="column" fxLayoutAlign="start center" class="mt-20">
+                <h4>Customer Details</h4>
+              </div>
+              <div fxLayout="column">
+                <span class="mt-10"><b>Date:</b> {{productInfo.date | date}}</span>
+                <span class="mt-10"><b>Invoice:</b> {{productInfo.invoice}}</span>
+                <span class="mt-10"><b>Name:</b> {{productInfo.customerName}}</span>
+                <span class="mt-10"><b>Address:</b> {{productInfo.customerAddress}}</span>
+                <span class="mt-10"><b>Phone:</b> {{productInfo.customerPhone}}</span>
+                <span class="mt-10"><b>Product:</b> {{productInfo.productName}}</span>
+                <span class="mt-10"><b>Condition:</b> {{productInfo.condition}}</span>
+              </div>
+
+            </div>
+
+            <div class="mt-20">
+              <button mat-raised-button color="primary" printSectionId="print-section" ngxPrint>Print</button>
+            </div>
+
+
+          </div>
+
+        </div>
+      </div>
+
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+</div>

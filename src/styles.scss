@@ -1,0 +1,17 @@
+@import "~@angular/material/theming";
+
+@include mat-core();
+
+@import "./themes/my-theme";
+@import "./themes/my-second-theme";
+
+.my-theme{
+  @include angular-material-theme($my-theme)
+}
+.my-second-theme{
+  @include angular-material-theme($my-second-theme)
+}
+
+
+
+

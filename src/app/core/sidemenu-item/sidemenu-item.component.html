@@ -1,0 +1,7 @@
+<mat-nav-list>
+    <!--<mat-list-item [ngClass]="{'active-nav':menu.active, '':!menu.active}" (click)="navBarClicked()">-->
+    <mat-list-item (click)="navBarClicked()">
+        <mat-icon matListIcon iconsmall  >{{menu.icon}} </mat-icon>
+        <h3 matLine>{{ menu.name }} </h3>
+    </mat-list-item>
+</mat-nav-list>
